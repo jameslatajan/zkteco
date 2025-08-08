@@ -21,7 +21,8 @@ use Rats\Zkteco\Lib\Helper\Version;
 use Rats\Zkteco\Lib\Helper\WorkCode;
 
 
-class ZKTeco{
+class ZKTeco
+{
   public $_ip;
   public $_port;
   public $_zkclient;
@@ -44,7 +45,6 @@ class ZKTeco{
 
     $timeout = array('sec' => 60, 'usec' => 500000);
     socket_set_option($this->_zkclient, SOL_SOCKET, SO_RCVTIMEO, $timeout);
-
   }
 
   /**
@@ -431,5 +431,34 @@ class ZKTeco{
   public function writeLCD()
   {
     return Device::writeLCD($this, 2, "RAIHAN Afroz Topu");
+  }
+
+  /**
+   * Get options 
+   */
+  public function getOption($optionName)
+  {
+    $this->_section = __METHOD__;
+
+    // CMD_GET_OPTION = 0x0120
+    $command = 0x0120;
+
+    // Command string is the option name in ASCII
+    $command_string = $optionName;
+
+    $response = $this->_command($command, $command_string, Util::COMMAND_TYPE_DATA);
+
+    if ($response === false) {
+      return false;
+    }
+
+    // Device returns: header + value
+    $data = Util::recData($this);
+
+    // Remove protocol header
+    $data = substr($data, 8);
+
+    // Convert binary to string and strip null bytes
+    return trim(str_replace("\0", '', $data));
   }
 }
