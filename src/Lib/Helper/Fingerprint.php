@@ -62,7 +62,7 @@ class Fingerprint
             $data = $prefix . $data;
             if (strlen($templateSize) > 0) {
                 $ret['size'] = $templateSize;
-                $ret['tpl']  = base64_encode($data); // encode the template data
+                $ret['tpl']  = $data;
             }
         }
 
