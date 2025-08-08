@@ -48,7 +48,9 @@ Add your fork as a repository and require the desired branch:
 ````
 
 # Update only this package and its dependencies (safe update)
+```bash
 composer update rats/zkteco --with-dependencies
+```
 
 ### Usage
 1. Create a object of ZKTeco class.
