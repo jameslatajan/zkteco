@@ -20,7 +20,7 @@ class Fingerprint
         $data = [];
         //fingers of the hands
         for ($i = 0; $i <= 9; $i++) {
-          $finger = new Fingerprint();
+            $finger = new Fingerprint();
             $tmp = $finger->_getFinger($self, $uid, $i);
             if ($tmp['size'] > 0) {
                 $data[$i] = $tmp['tpl'];
@@ -62,7 +62,7 @@ class Fingerprint
             $data = $prefix . $data;
             if (strlen($templateSize) > 0) {
                 $ret['size'] = $templateSize;
-                $ret['tpl'] = $data;
+                $ret['tpl']  = base64_encode($data); // encode the template data
             }
         }
 
@@ -122,7 +122,7 @@ class Fingerprint
 
         $count = 0;
         foreach ($data as $finger) {
-          $fingerPrint = new Fingerprint();
+            $fingerPrint = new Fingerprint();
             if ($fingerPrint->_checkFinger($self, $uid, $finger) === true) {
                 if ($fingerPrint->_removeFinger($self, $uid, $finger) === true) {
                     $count++;
@@ -159,7 +159,7 @@ class Fingerprint
      */
     private function _checkFinger(ZKTeco $self, $uid, $finger)
     {
-      $fingerPrint = new Fingerprint();
+        $fingerPrint = new Fingerprint();
         $res = $fingerPrint->_getFinger($self, $uid, $finger);
         return (bool)($res['size'] > 0);
     }
