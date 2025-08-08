@@ -20,16 +20,16 @@ The package will automatically register itself.
 
 You have to enable your php socket if it is not enable.
 
-## Update `rats/zkteco` Library from Your Fork
+### Update `rats/zkteco` Library from Your Fork
 
 To update the `rats/zkteco` library from your own fork without affecting the rest of your project:
 
----
 
 ### 1. Edit `composer.json`
 
 Add your fork as a repository and require the desired branch:
 
+```json
 "repositories": [
     {
         "type": "vcs",
@@ -45,6 +45,7 @@ Add your fork as a repository and require the desired branch:
         "php": "8.1.0"
     }
 }
+````
 
 # Update only this package and its dependencies (safe update)
 composer update rats/zkteco --with-dependencies
