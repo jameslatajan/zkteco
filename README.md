@@ -1,31 +1,55 @@
-# ZKTeco - Laravel Library #
+# ZKTeco - Laravel Library
 
-[![Issues](https://img.shields.io/github/issues/raihanafroz/zkteco?style=flat-square)](https://github.com/raihanafroz/zkteco/issues)
-[![Forks](https://img.shields.io/github/forks/raihanafroz/zkteco?style=flat-square)](https://github.com/raihanafroz/zkteco/network/members)
-[![Stars](https://img.shields.io/github/stars/raihanafroz/zkteco?style=flat-square)](https://github.com/raihanafroz/zkteco/stargazers)
-[![Total Downloads](https://img.shields.io/packagist/dt/rats/zkteco?style=flat-square)](https://packagist.org/packages/rats/zkteco)
-[![License](https://poser.pugx.org/rats/zkteco/license.svg)](https://packagist.org/packages/rats/zkteco)
-
+[![Issues](https://img.shields.io/github/issues/raihanafroz/zkteco?style=flat-square)](https://github.com/raihanafroz/zkteco/issues) [![Forks](https://img.shields.io/github/forks/raihanafroz/zkteco?style=flat-square)](https://github.com/raihanafroz/zkteco/network/members) [![Stars](https://img.shields.io/github/stars/raihanafroz/zkteco?style=flat-square)](https://github.com/raihanafroz/zkteco/stargazers) [![Total Downloads](https://img.shields.io/packagist/dt/rats/zkteco?style=flat-square)](https://packagist.org/packages/rats/zkteco) [![License](https://poser.pugx.org/rats/zkteco/license.svg)](https://packagist.org/packages/rats/zkteco)
 
 The `rats/zkteco` package provides easy to use functions to ZKTeco Device activities.
 
-__Requires:__  **Laravel** >= **6.0**
+**Requires:** **Laravel** >= **6.0**
 
-__License:__ MIT or later
+**License:** MIT or later
 
 ## Installation:
+
 You can install the package via composer:
 
-``` bash
+```bash
 composer require rats/zkteco
 ```
+
 The package will automatically register itself.
 
-You have to enable your php socket if it is not enable. 
+You have to enable your php socket if it is not enable.
 
+## Update `rats/zkteco` Library from Your Fork
 
-## Usage
+To update the `rats/zkteco` library from your own fork without affecting the rest of your project:
 
+---
+
+### 1. Edit `composer.json`
+
+Add your fork as a repository and require the desired branch:
+
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/jameslatajan/zkteco.git"
+    }
+],
+"require": {
+    "rats/zkteco": "dev-master",
+    "codeigniter4/framework": "4.4.8"
+},
+"config": {
+    "platform": {
+        "php": "8.1.0"
+    }
+}
+
+# Update only this package and its dependencies (safe update)
+composer update rats/zkteco --with-dependencies
+
+### Usage
 1. Create a object of ZKTeco class.
 
 ```php
@@ -33,190 +57,212 @@ You have to enable your php socket if it is not enable.
 
 //  1 s't parameter is string $ip Device IP Address
 //  2 nd  parameter is integer $port Default: 4370
-  
+
     $zk = new ZKTeco('192.168.1.201');
-    
+
 //  or you can use with port
 //    $zk = new ZKTeco('192.168.1.201', 8080);
-    
-```
+
+````
 
 2. Call ZKTeco methods
 
-* __Connect__ 
+- **Connect**
+
 ```php
 //    connect
 //    this return bool
-    $zk->connect();   
+    $zk->connect();
 ```
 
-* __Disconnect__ 
+- **Disconnect**
+
 ```php
 //    disconnect
 //    this return bool
 
-    $zk->disconnect();   
+    $zk->disconnect();
 ```
 
-* __Enable Device__ 
+- **Enable Device**
+
 ```php
 //    enable
 //    this return bool/mixed
 
-    $zk->enableDevice();   
+    $zk->enableDevice();
 ```
+
 > **NOTE**: You have to call after read/write any info of Device.
 
-* __Disable Device__ 
+- **Disable Device**
+
 ```php
-//    disable 
+//    disable
 //    this return bool/mixed
 
-    $zk->disableDevice(); 
+    $zk->disableDevice();
 ```
-> **NOTE**: You have to call before read/write any info of Device. 
 
+> **NOTE**: You have to call before read/write any info of Device.
 
-* __Device Version__ 
+- **Device Version**
+
 ```php
-//    get device version 
+//    get device version
 //    this return bool/mixed
 
-    $zk->version(); 
+    $zk->version();
 ```
 
+- **Device Os Version**
 
-* __Device Os Version__ 
 ```php
-//    get device os version 
+//    get device os version
 //    this return bool/mixed
 
-    $zk->osVersion(); 
+    $zk->osVersion();
 ```
 
-* __Power Off__ 
+- **Power Off**
+
 ```php
-//    turn off the device 
+//    turn off the device
 //    this return bool/mixed
 
-    $zk->shutdown(); 
+    $zk->shutdown();
 ```
 
-* __Restart__ 
+- **Restart**
+
 ```php
-//    restart the device 
+//    restart the device
 //    this return bool/mixed
 
-    $zk->restart(); 
+    $zk->restart();
 ```
 
-* __Sleep__ 
+- **Sleep**
+
 ```php
-//    sleep the device 
+//    sleep the device
 //    this return bool/mixed
 
-    $zk->sleep(); 
+    $zk->sleep();
 ```
 
-* __Resume__ 
+- **Resume**
+
 ```php
-//    resume the device from sleep 
+//    resume the device from sleep
 //    this return bool/mixed
 
-    $zk->resume(); 
+    $zk->resume();
 ```
 
-* __Voice Test__ 
+- **Voice Test**
+
 ```php
-//    voice test of the device "Thank you" 
+//    voice test of the device "Thank you"
 //    this return bool/mixed
 
-    $zk->testVoice(); 
+    $zk->testVoice();
 ```
 
-* __Platform__ 
+- **Platform**
+
 ```php
-//    get platform 
+//    get platform
 //    this return bool/mixed
 
-    $zk->platform(); 
+    $zk->platform();
 ```
 
-* __Firmware Version__ 
+- **Firmware Version**
+
 ```php
 //    get firmware version
 //    this return bool/mixed
 
-    $zk->fmVersion(); 
+    $zk->fmVersion();
 ```
 
-* __Work Code__ 
+- **Work Code**
+
 ```php
 //    get work code
 //    this return bool/mixed
 
-    $zk->workCode(); 
+    $zk->workCode();
 ```
 
-* __SSR__ 
+- **SSR**
+
 ```php
 //    get SSR
 //    this return bool/mixed
 
-    $zk->ssr(); 
+    $zk->ssr();
 ```
 
-* __Pin Width__ 
+- **Pin Width**
+
 ```php
 //    get  Pin Width
 //    this return bool/mixed
 
-    $zk->pinWidth(); 
+    $zk->pinWidth();
 ```
 
-* __Serial Number__ 
+- **Serial Number**
+
 ```php
 //    get device serial number
 //    this return bool/mixed
 
-    $zk->serialNumber(); 
+    $zk->serialNumber();
 ```
 
-* __Device Name__ 
+- **Device Name**
+
 ```php
 //    get device name
 //    this return bool/mixed
 
-    $zk->deviceName(); 
+    $zk->deviceName();
 ```
 
-* __Get Device Time__ 
+- **Get Device Time**
+
 ```php
 //    get device time
 
 //    return bool/mixed bool|mixed Format: "Y-m-d H:i:s"
 
-    $zk->getTime(); 
+    $zk->getTime();
 ```
 
-* __Set Device Time__ 
+- **Set Device Time**
+
 ```php
 //    set device time
 //    parameter string $t Format: "Y-m-d H:i:s"
 //    return bool/mixed
 
-    $zk->setTime(); 
+    $zk->setTime();
 ```
 
-* __Get Users__ 
+- **Get Users**
+
 ```php
 //    get User
 //    this return array[]
 
-    $zk->getUser(); 
+    $zk->getUser();
 ```
 
-* __Set Users__ 
+- **Set Users**
+
 ```php
 //    set user
 
@@ -229,35 +275,39 @@ You have to enable your php socket if it is not enable.
 
 //    return bool|mixed
 
-    $zk->setUser(); 
+    $zk->setUser();
 ```
 
-* __Clear All Admin__ 
+- **Clear All Admin**
+
 ```php
 //    remove all admin
 //    return bool|mixed
 
-    $zk->clearAdmin(); 
+    $zk->clearAdmin();
 ```
 
-* __Clear All Users__ 
+- **Clear All Users**
+
 ```php
 //    remove all users
 //    return bool|mixed
 
-    $zk->clearAdmin(); 
+    $zk->clearAdmin();
 ```
 
-* __Remove A User__ 
+- **Remove A User**
+
 ```php
 //    remove a user by $uid
 //    parameter integer $uid
 //    return bool|mixed
 
-    $zk->removeUser(); 
+    $zk->removeUser();
 ```
 
-* __Get Attendance Log__ 
+- **Get Attendance Log**
+
 ```php
 //    get attendance log
 
@@ -271,22 +321,17 @@ You have to enable your php socket if it is not enable.
 //              "type" => 255   /* attendance type, like check-in, check-out, overtime-in, overtime-out, break-in & break-out etc. if attendance type is none of them, it gives  255. */
 //              ]
 
-    $zk->getAttendance(); 
+    $zk->getAttendance();
 ```
 
-* __Clear Attendance Log__ 
+- **Clear Attendance Log**
+
 ```php
 //    clear attendance log
 
 //    return bool/mixed
 
-    $zk->clearAttendance(); 
+    $zk->clearAttendance();
 ```
-
-
-
-
-
-
 
 # end
