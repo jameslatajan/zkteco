@@ -1,0 +1,31 @@
+C:\wamp64\www\projects\non-profit\zkteco\src\Lib\Helper\Attendance.php:31:string '���1�����������������������A�1����������1�����������������������8�1����������1�������������������������1����������10����������������������I�1���������' (length=162)
+C:\wamp64\www\projects\non-profit\zkteco\test_script.php:26:
+array (size=4)
+  0 => 
+    array (size=5)
+      'uid' => int 1
+      'id' => string '1' (length=1)
+      'state' => int 3
+      'timestamp' => string '2025-12-03 17:24:17' (length=19)
+      'type' => int 0
+  1 => 
+    array (size=5)
+      'uid' => int 2
+      'id' => string '1' (length=1)
+      'state' => int 3
+      'timestamp' => string '2025-12-03 18:32:24' (length=19)
+      'type' => int 0
+  2 => 
+    array (size=5)
+      'uid' => int 3
+      'id' => string '1' (length=1)
+      'state' => int 3
+      'timestamp' => string '2025-12-03 18:38:14' (length=19)
+      'type' => int 0
+  3 => 
+    array (size=5)
+      'uid' => int 4
+      'id' => string '10' (length=2)
+      'state' => int 1
+      'timestamp' => string '2025-12-03 18:45:29' (length=19)
+      'type' => int 0
