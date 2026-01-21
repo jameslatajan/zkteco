@@ -36,16 +36,7 @@ Add your fork as a repository and require the desired branch:
         "type": "vcs",
         "url": "https://github.com/jameslatajan/zkteco.git"
     }
-],
-"require": {
-    "rats/zkteco": "dev-master",
-    "codeigniter4/framework": "4.4.8"
-},
-"config": {
-    "platform": {
-        "php": "8.1.0"
-    }
-}
+]
 ```
 
 ### Update only this package and its dependencies (safe update)
